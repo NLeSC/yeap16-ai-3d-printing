@@ -1,0 +1,89 @@
+paths:
+  # Root directory of files
+    base_dir: /path/to/base/
+
+    ### Training file directories.
+
+    # Where the training CT scans are stored (.nrrd)
+    trn_CT_dir: /path/to/trn_CT_dir
+    # Where the training CT PNG slices will be stored (.png)
+    trn_CT_slice_PNG_dir: /path/to/trn_CT_slice_PNG_dir
+    # Where the training CT Numpy arrays of slices will be stored (.npz)
+    trn_CT_slice_NPY_dir: /path/to/trn_CT_slice_NPY_dir
+
+    # Where training labelmap is stored (.nrrd)
+    trn_label_dir: /path/to/trn_label_dir
+    # Where the training label PNG slices will be stored (.png)
+    trn_label_slice_PNG_dir: /path/to/trn_label_slice_PNG_dir
+    # Where the training label Numpy arrays of slices will be stored (.npz)
+    trn_label_slice_NPY_dir: /path/to/trn_label_slice_NPY_dir
+
+    # Where training CT patches are stored
+    trn_CT_patch_dir: /path/to/trn_CT_patch_dir
+    # Where training label patches are stored
+    trn_label_patch_dir: /path/to/trn_label_patch_dir
+
+    ### Threshold-segmentation file directories.
+
+    # Where threshold labels are stored (.nrrd)
+    thr_label_dir: /path/to/thr_label_dir
+    # Where PNG threshold label slices will be stored
+    thr_label_slice_PNG_dir: /path/to/thr_label_slice_PNG_dir
+    # Where numpy threshold labels slices will be stored
+    thr_label_slice_NPY_dir: /path/to/thr_label_slice_NPY_dir
+
+    ### Test file directories.
+
+    # Where test images are stored
+    tst_image_dir: /path/to/tst_image_dir
+    # Where test labels are stored
+    tst_label_dir: /path/to/trn_label_dir
+    # Where the predicyion labels are stored
+    pred_label_dir: /path/to/pred_label_dir
+
+patient_data:
+    num_patients: 3
+    classes: [0, 1]
+
+patches:
+    save_dir: /path/to/patch_save_dir
+    num_patches: 500000
+    size:
+        x: 33
+        y: 33
+    edges:
+        x: 0
+        y: 0
+
+training:
+    type: 'single_phase'
+    architecture: 'single'
+    file_extension: .nrrd
+    val_split: 0.2
+    num_epochs: 10
+    num_folds: 3
+    batch_size: 128
+    weight_reg: [0.00000000000001]
+    dropout: 0.1
+    kernel_dims: [7, 5, 5, 3]
+    num_filters: [2, 4, 8, 16]
+    activation: 'relu'
+
+optimizer:
+  type: 'RMSprop'
+  learning_rate: 0.005
+  decay: 0.01
+  rho: 0.9
+  epsilon: 0.00000001
+  momentum: 0.9
+  Nesterov: True
+
+evaluation:
+    num_test_patches: 500000
+    num_test_folds: 3
+    save_dir: /path/to/results
+
+model:
+    load_model_name: CNN01
+    weights_save_dir: /path/to/weights_save_dir/
+    architecture_save_dir: /path/to/architecture_save_dir/
