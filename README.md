@@ -1,3 +1,4 @@
+[![BuildStatus](https://travis-ci.org/NLeSC/yeap16-ai-3d-printing.svg?branch=master)](https://travis-ci.org/NLeSC/yeap16-ai-3d-printing)
 # yeap16: CT-image bone segmentation
 Code repository of the [Young eScientist Award Project](https://www.esciencecenter.nl/redactional/young-escientist-2016) with the 3D Innovation Lab at the VUmc. This code accompanies a paper titled: <br>
 

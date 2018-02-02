@@ -17,8 +17,8 @@ setup(
     version='0.1',
     description=("CT-scan bone segmentation using CNN's"),
     packages=['deepy3d'],
-    install_requires=required
+    install_requires=required,
     url="https://github.com/NLeSC/yeap16-ai-3d-printing",
     license='Apache 2.0',
-    long_description=open('README.txt').read(),
+    long_description=open('README.md').read(),
 )
