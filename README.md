@@ -16,29 +16,34 @@ The CNN was trained using CT scans of three patients that were previously treate
 Our CNN architecture was inspired by the one described in the [Github repository](https://github.com/naldeborgh7575/brain_segmentation.git) of N.Aldenborgh. This architecture consists of four convolutional layers with additional ReLU, batch normalization and pooling layers. Pixel classification was performed using the softmax cost function. Furthermore, the RMSprop optimizer was used during the CNN training.  
 
 ## Installation
-Install dependencies (Ubuntu):
-```shell
-sudo apt-get install git numpy scipy matplotlib skimage sklearn tensorflow keras numpngw six json nrrd yaml
-```
 Clone the repository:
 ```shell
+sudo apt-get install git
 git clone https://github.com/NLeSC/yeap16-ai-3d-printing.git
 ```
-Import Deepy3d class in a python script:
+
+Create an environment with all dependencies:
 ```shell
-from Deepy3d import Deepy3d
+conda env create -f environment.yml
+source activate deepy3d
+```
+
+Install the package:
+```shell
+python setup.py install
 ```
 
 ## Usage
-When called directly, the Deepy3d class runs an example script that reads in patient data according to a configuration file, trains a CNN model and visualizes its predictions on a held-out patient. For patient confidentiality reasons, we cannot include our CT data set in this repository. But we included a config.yml and ConfigReader class to facilitate reading in patient data.
+When called directly, the Deepy3d class runs an example script that reads in patient data according to a configuration file, trains a CNN model and visualizes its predictions on a held-out patient. For patient confidentiality reasons, we cannot include our CT data set in this repository. But we included a config.yml and ConfigReader class to facilitate reading in your own patient data.
 
 In order to run the example script:
 1. Insert your local data directories in config.yml.
-2. (Optional) change network parameters in config.yml.
-3. Call Deepy3d class:
+2. Call Deepy3d class:
 ```shell
 python ./deepy3d/Deepy3d.py
 ```
+
+config.yml also contains network architecture and training parameters, should you want to change those as well.
 
 ### 3D-Slicer
 The repository also contains a fork of a medical image processing and visualization package called [3D-Slicer](https://github.com/Slicer/Slicer). We used Slicer for manipulating CT-scans and performing global thresholding on the grayscale intensity values (Hounsfield units).

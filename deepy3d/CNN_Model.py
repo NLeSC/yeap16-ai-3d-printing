@@ -15,9 +15,6 @@ from os.path import basename
 from scipy.signal import convolve2d
 from matplotlib.image import imread, imsave
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-from skimage import color, img_as_float
-from skimage.exposure import adjust_gamma
-from skimage.segmentation import mark_boundaries
 from sklearn.feature_extraction.image import extract_patches_2d
 from sklearn.metrics import classification_report, confusion_matrix
 from keras.models import Sequential, Model, model_from_json
