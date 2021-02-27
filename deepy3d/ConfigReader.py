@@ -80,7 +80,7 @@ class ConfigReader(object):
     def get_thr_label_slice_PNG_dir(self):
         """Retrieve directory of threshold-label files in NPY format."""
         return self.get_base_dir() + \
-            self.config['paths']['trn_label_slice_PNG_dir']
+            self.config['paths']['thr_label_slice_PNG_dir']
 
     def get_thr_label_slice_NPY_dir(self):
         """Retrieve directory of threshold-label files in NPY format."""
