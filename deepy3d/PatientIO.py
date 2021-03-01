@@ -146,7 +146,7 @@ class PatientIO(object):
             if not (isfile(lab_png_fn) and not overwrite):
 
                 # Write label slice as png
-                pw.write_png(lab_png_fn, slices[:, :, slice_idx], bitdepth=1)
+                pw.write_png(lab_png_fn, slices[:, :, slice_idx].astype('uint8'), bitdepth=1)
 
             # Threshold png filename
             thr_png_fn = dir_threshold_label_PNG+'{}_{}.png'.format(
