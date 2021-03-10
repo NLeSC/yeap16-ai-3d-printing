@@ -247,7 +247,7 @@ class CNN_Model(object):
         # Minimum intensity value of image
         edge_value = np.min(imgs)
 
-        print 'The image to be predicted is of size', np.shape(imgs)
+        print ('The image to be predicted is of size', np.shape(imgs))
 
         #  Padding with the same value as the values at the edge
         imgs = np.pad(imgs, ((patch_step[0], patch_step[0]),
