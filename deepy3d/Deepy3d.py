@@ -6,6 +6,7 @@ import numpy as np
 import keras as ks
 from glob import glob
 from sklearn.metrics import classification_report
+from natsort import natsorted
 
 from ConfigReader import ConfigReader
 from PatientIO import PatientIO
@@ -34,9 +35,9 @@ class Deepy3d(object):
         print('* Reading CT scan files.')
 
         # Extract file directories
-        trn_files = self.config.get_CT_scans()
-        lbl_files = self.config.get_CT_labels()
-        thr_files = self.config.get_CT_thresholded()
+        trn_files = natsorted(self.config.get_CT_scans())
+        lbl_files = natsorted(self.config.get_CT_labels())
+        thr_files = natsorted(self.config.get_CT_thresholded())
 
         # Iterate over patients
         for i in range(self.config.get_num_patients()):
